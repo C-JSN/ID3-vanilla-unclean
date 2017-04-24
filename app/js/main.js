@@ -35,6 +35,8 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+  // console.log('main.js');
+  require('./mainmenu.js');
 }
 
 // This method will be called when Electron has finished
