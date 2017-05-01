@@ -2,7 +2,7 @@
   "name": "ide-d3-ide",
   "version": "1.0.0",
   "description": "D3 IDE React Broilerplate based on electron-quick-start",
-  "main": "./app/js/main.js",
+  "main": "./app/main.js",
   "scripts": {
     "start": "electron ."
   },
@@ -17,7 +17,8 @@
   "author": "C-JSN",
   "license": "MIT",
   "devDependencies": {
-    "electron": "~1.6.2"
+    "electron": "~1.6.2",
+    "electron-connect": "^0.6.1"
   },
   "dependencies": {
     "electromon": "^1.0.6",

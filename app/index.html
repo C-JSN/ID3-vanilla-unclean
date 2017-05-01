@@ -27,25 +27,6 @@
     <div class="window-content">
       <div class="pane-group">
         <div class="pane pane-sm sidebar">
-          <div id="jstree_demo_div">
-            <ul>
-              <li>Root node 1
-                <ul>
-                  <li id="child_node_1">Child node 1</li>
-                  <li onclick="">Child node 2</li>
-                </ul>
-              </li>
-              <li>Root node 2</li>
-            </ul>
-          </div>
-          <button id="tree">demo button</button>
-          <!-- <nav class="nav-group">
-            <h5 class="nav-group-title">Side Panel</h5>
-            <span class="nav-group-item">
-
-                <span class="icon icon-folder"></span> Documents
-            </span>
-          </nav> -->
           <div>
               <div style="text-align:center;">
                   <input type="text" placeholder="Please select a file" id="actual-file" disabled="disabled"/>
@@ -112,7 +93,8 @@
 <script>
 
   // You can also require other files to run in this process
-  require('./renderer.js')
+  require('./renderer.js');
+  // require('./js/ipc.js');
   // require('./js/editor.js')
 </script>
 

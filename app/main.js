@@ -1,16 +1,12 @@
-const electron = require('electron')
-// Module to control application life.
-const app = electron.app
-// Module to create native browser window.
-const BrowserWindow = electron.BrowserWindow
+const electron = require('electron');
+const { app, BrowserWindow } = electron;
+// var client = require('electron-connect').client;
 
 const path = require('path')
 const url = require('url')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow
-
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
@@ -20,13 +16,15 @@ function createWindow () {
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, '../index.html'),
+    pathname: path.join(__dirname, 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
+  // client.create(mainWindow);
+
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -35,9 +33,13 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+
+
   // console.log('main.js');
-  require('./mainmenu.js');
+  require('./js/mainmenu.js');
 }
+
+// console.log('electron', electron);
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

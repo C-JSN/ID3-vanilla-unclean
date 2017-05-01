@@ -1,9 +1,32 @@
-const {Menu} = require('electron');
+const {dialog, Menu, ipcMain, BrowserWindow} = require('electron');
 const electron = require('electron');
 const app = electron.app;
 
-console.log('mainmenu');
+// console.log('mainmenu');
+// function openFile() {
+//   console.log('inside Open File');
+//   ipcMain.on('synchronous-message', (event, arg) => {
+//     console.log(arg)  // prints "ping"
+//     event.returnValue = 'pong'
+//   })
+// }
 const template = [
+  {
+    label: 'File',
+    submenu: [
+      {
+        label: 'Open File',
+        accelerator: 'CmdOrCtrl+O',
+        // click() { openFile() }
+      },
+      {
+        label: 'Save',
+        accelerator: 'CmdOrCtrl+S',
+        // click() { saveFile(); }
+      },
+
+    ]
+  },
   {
     label: 'Edit',
     submenu: [

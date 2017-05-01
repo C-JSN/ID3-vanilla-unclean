@@ -1,6 +1,7 @@
 const amdRequire = global.require('monaco-editor/min/vs/loader.js').require;
 const {dialog} = require('electron').remote;
 var fs = require('fs');
+const {ipcRenderer} = require('electron');
 
 const path = require('path');
 function uriFromPath(_path) {
@@ -20,12 +21,19 @@ self.process.browser = true;
 amdRequire(['vs/editor/editor.main'], function () {
   let editor = monaco.editor.create(document.getElementById('editor'), {
     value: [
-      // 'function x() {',
-      // '\tconsole.log("Hello world!");',
-      // '}'
+      'function x() {',
+      '\tconsole.log("Hello world!");',
+      '}'
     ].join('\n'),
-    language: 'javascript'
+    language: 'javascript',
+    theme: "vs-dark",
   });
+
+  window.onresize = () => {
+    editor.layout();
+  }
+
+  // console.log(ipcRenderer.sendSync('synchronous-message', 'ping'))
 
   document.getElementById('create-new-file').addEventListener('click',function(){
       var content = editor.getValue();
